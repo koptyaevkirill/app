@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<% if current_user %>
+        <li class="nav-item pull-right add-space">Signed in as <%= current_user.name %> - <%= image_tag @auth['info']['image'],
+          width: '50', height: '50', class: 'nav_logo' %></li>
+        <li class="nav-item pull-right add-space"><%= link_to "Sign out", 'sign_out', method: :delete, class: 'nav-link' %></li>
+      <% else %>
+        <li class="nav-item pull-right add-space"><%= link_to "Log in with Twitter", "auth/twitter", class: "nav-link" %></li>
+        <li class="nav-item pull-right add-space"><%= link_to "Log in with Facebook", "auth/facebook", class: "nav-link" %></li>
+        <li class="nav-item pull-right add-space"><%= link_to "Log in with Vkontakte", "auth/vkontakte", class: "nav-link" %></li>
+	<% end %>
+    <%= yield %>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-info"><%= value %></div>
+	<% end %>
+  </body>
+</html>
