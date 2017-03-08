@@ -13,6 +13,7 @@
         <li class="nav-item pull-right add-space">Signed in as <%= current_user.name %> - <%= image_tag @auth['info']['image'],
           width: '50', height: '50', class: 'nav_logo' %></li>
         <li class="nav-item pull-right add-space"><%= link_to "Sign out", 'sign_out', method: :delete, class: 'nav-link' %></li>
+        <li class="nav-item pull-right add-space"><%= link_to "Admin", 'admin', class: 'nav-link' %></li>
       <% else %>
         <li class="nav-item pull-right add-space"><%= link_to "Log in with Twitter", "auth/twitter", class: "nav-link" %></li>
         <li class="nav-item pull-right add-space"><%= link_to "Log in with Facebook", "auth/facebook", class: "nav-link" %></li>

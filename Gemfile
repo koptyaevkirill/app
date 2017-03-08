@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
-
+gem 'rails_admin'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
