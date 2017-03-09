@@ -1,4 +1,11 @@
 RailsAdmin.config do |config|
+  config.model 'User' do
+    edit do
+      field :name
+      field :admin
+      field :blocked
+    end
+  end
   config.authorize_with do
     redirect_to main_app.root_path unless current_user.try(:admin?)
   end
@@ -10,7 +17,7 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    #export
     bulk_delete
     show
     edit
