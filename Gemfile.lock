@@ -39,6 +39,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    bootstrap-sass (2.3.2.0)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -120,7 +122,7 @@ GEM
       rack
     omniauth-vkontakte (1.3.7)
       omniauth-oauth2 (~> 1.1)
-    puma (3.7.1)
+    puma (3.8.1)
     rack (2.0.1)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -190,12 +192,14 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    trix (0.10.1)
+      rails
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.4)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
     web-console (3.4.0)
       actionview (>= 5.0)
@@ -210,6 +214,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (= 2.3.2.0)
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -225,6 +230,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  trix
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

@@ -35,6 +35,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'rails_admin'
+gem 'trix'
+gem 'bootstrap-sass', '2.3.2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

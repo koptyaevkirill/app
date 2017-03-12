@@ -14,18 +14,13 @@ RailsAdmin.config do |config|
       current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard
+    index
     new
-    #export
     bulk_delete
     show
     edit
     delete
     show_in_app
-
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
   end
 end
