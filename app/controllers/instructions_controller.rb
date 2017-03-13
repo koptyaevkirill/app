@@ -2,7 +2,7 @@ class InstructionsController < ApplicationController
   before_action :set_instruction, only: [:show, :edit, :update, :destroy]
   
   def index
-      @instructions = current_user.instructions.all.paginate(page: params[:page], per_page: 1)
+    @instructions = current_user.instructions.all
   end
 
   def show
@@ -16,7 +16,8 @@ class InstructionsController < ApplicationController
   end
 
   def create
-    @instruction = Instruction.new(instruction_params)
+    @user = current_user
+    @instruction = @user.instructions.build(instruction_params)
 
     respond_to do |format|
       if @instruction.save
@@ -52,6 +53,7 @@ class InstructionsController < ApplicationController
   private
     def set_instruction
       @instruction = Instruction.find(params[:id])
+      @qr = RQRCode::QRCode.new( @instruction.url_youtube, :size => 4, :level => :h )
     end
 
     def instruction_params

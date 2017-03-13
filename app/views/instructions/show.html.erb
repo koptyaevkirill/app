@@ -13,6 +13,9 @@
         <% end %>
       </small>
     </section>
+    <section class="instruction-qr">
+      <%= raw @qr.as_html %>
+    </section>
     <section class="instruction-summary">
       <%= @instruction.body.html_safe %>
     </section>

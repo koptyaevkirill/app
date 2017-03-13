@@ -37,8 +37,7 @@ gem 'omniauth-vkontakte'
 gem 'rails_admin'
 gem 'trix'
 gem 'bootstrap-sass'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'rqrcode'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

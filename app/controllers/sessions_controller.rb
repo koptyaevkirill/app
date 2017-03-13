@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user.blocked
       session[:user_id] = nil
       session[:omniauth] = nil
-      flash[:error] = "BLOCKED"
+      flash[:danger] = " User BLOCKED"
     else
       flash[:success] = "SIGNED IN"
     end
