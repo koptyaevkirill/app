@@ -36,7 +36,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'rails_admin'
 gem 'trix'
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

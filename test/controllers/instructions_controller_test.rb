@@ -17,7 +17,7 @@ class InstructionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create instruction" do
     assert_difference('Instruction.count') do
-      post instructions_url, params: { instruction: { url_youtube: @instruction.url_youtube, user_id: @instruction.user_id } }
+      post instructions_url, params: { instruction: { body: @instruction.body, category_id: @instruction.category_id, step_id: @instruction.step_id, url_youtube: @instruction.url_youtube, user_id: @instruction.user_id } }
     end
 
     assert_redirected_to instruction_url(Instruction.last)
@@ -34,7 +34,7 @@ class InstructionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update instruction" do
-    patch instruction_url(@instruction), params: { instruction: { url_youtube: @instruction.url_youtube, user_id: @instruction.user_id } }
+    patch instruction_url(@instruction), params: { instruction: { body: @instruction.body, category_id: @instruction.category_id, step_id: @instruction.step_id, url_youtube: @instruction.url_youtube, user_id: @instruction.user_id } }
     assert_redirected_to instruction_url(@instruction)
   end
 

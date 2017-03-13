@@ -10,18 +10,43 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :url_youtube %>
-    <%= f.text_field :url_youtube %>
+  <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :title %>
+          <%= f.text_field :title, :placeholder => :title, class: 'form-control' %>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
+  <div class="row control-group">
+    <div class="form-group col-xs-12 floating-label-form-group controls body">
+      <%= f.label :body %>
+      <%= f.trix_editor :body, :placeholder => :title, class: 'editor' %>
+    </div>
+  </div><br/>
+
+  <div class="row control-group">
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, Category.order(:name), :id, :name, {include_blank: false}, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :url_youtube %>
+          <%= f.text_field :url_youtube, :placeholder => :url_youtube, class: 'form-control' %>
+      </div>
+  </div>
+
+  <div class="row control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+          <%= f.label :all_tags %>
+          <%= f.text_field :all_tags, :placeholder => :all_tags, class: 'form-control' %>
+      </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="form-group col-xs-12">
+      <%= f.submit "Create", class: "btn btn-success btn-lg" %>
+      <%= link_to 'Back', instructions_path, class: "btn btn-success btn-lg" %>
+    </div>
   </div>
 <% end %>

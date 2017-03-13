@@ -1,28 +1,20 @@
 class InstructionsController < ApplicationController
   before_action :set_instruction, only: [:show, :edit, :update, :destroy]
-
-  # GET /instructions
-  # GET /instructions.json
+  
   def index
-    @instructions = Instruction.all
+      @instructions = current_user.instructions.all.paginate(page: params[:page], per_page: 1)
   end
 
-  # GET /instructions/1
-  # GET /instructions/1.json
   def show
   end
 
-  # GET /instructions/new
   def new
     @instruction = Instruction.new
   end
 
-  # GET /instructions/1/edit
   def edit
   end
 
-  # POST /instructions
-  # POST /instructions.json
   def create
     @instruction = Instruction.new(instruction_params)
 
@@ -37,8 +29,6 @@ class InstructionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /instructions/1
-  # PATCH/PUT /instructions/1.json
   def update
     respond_to do |format|
       if @instruction.update(instruction_params)
@@ -51,8 +41,6 @@ class InstructionsController < ApplicationController
     end
   end
 
-  # DELETE /instructions/1
-  # DELETE /instructions/1.json
   def destroy
     @instruction.destroy
     respond_to do |format|
@@ -62,13 +50,11 @@ class InstructionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_instruction
       @instruction = Instruction.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def instruction_params
-      params.require(:instruction).permit(:url_youtube, :user_id)
+      params.require(:instruction).permit(:body, :step_id, :category_id, :url_youtube, :all_tags, :title)
     end
 end

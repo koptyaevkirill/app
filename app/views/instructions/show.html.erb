@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Url youtube:</strong>
-  <%= @instruction.url_youtube %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @instruction.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_instruction_path(@instruction) %> |
-<%= link_to 'Back', instructions_path %>
+<section id="instruction-prev">
+  <%= link_to 'Back', instructions_path %>
+  <section id="instructions">
+    <section class="instruction-head">
+      <h2><%= @instruction.title %></h2>
+      <small>
+        <time><%= @instruction.created_at.to_date.strftime("%d %B, %Y") %></time>
+        |
+        <%= raw @instruction.tags.map(&:name).map{|t| link_to t, tag_path(t)}.join(' / ') %>
+        <% if @instruction.category.present? %>
+          |
+          <%= link_to @instruction.category.name, @instruction.category %>
+        <% end %>
+      </small>
+    </section>
+    <section class="instruction-summary">
+      <%= @instruction.body.html_safe %>
+    </section>
+    <section class="instruction-video">
+      <iframe width="560" height="315" src="<%= youtube(@instruction.url_youtube) %>" frameborder="0" allowfullscreen></iframe>
+    </section>
+  </section>
+  <%= render 'disqus'%>
+</section>

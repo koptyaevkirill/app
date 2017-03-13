@@ -1,9 +1,7 @@
 class HomeController < ApplicationController
   before_action :set_auth
   def index
-  end
-
-  def profile
+      @instruction = Instruction.all.paginate(page: params[:page])
   end
 
   private
